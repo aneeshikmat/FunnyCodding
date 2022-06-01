@@ -1,0 +1,32 @@
+/* 
+Valid Perfect Square 
+*/
+
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isPerfectSquare = function(num) {
+    let left = 0;
+    let right = num;
+    
+    if(num === 1){
+        return true;
+    }
+    
+    while(left <= right){
+        let mid = left + Math.floor((right - left) / 2);
+        let half = mid / 2;
+        let newNum = half * half;
+        
+        if(newNum === num){
+            return true;
+        }else if(num > newNum){
+            left = mid + 1;
+        }else {
+            right = mid - 1;
+        }
+    }
+    
+    return false;
+};
