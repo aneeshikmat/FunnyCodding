@@ -28,6 +28,46 @@
     return result;
 };
 
+  var inorderTraversal = function(root) {    
+    let result = [];
+    if(!root){
+        return [];
+    }
+  
+    const buildTree = (root) => {
+        if(!root){
+            return result;
+        }
+
+        root.left && buildTree(root.left);
+        result.push(root.val);
+        root.right && buildTree(root.right);
+    };
+     
+    buildTree(root);
+    return result;
+};
+
+ var postorderTraversal = function(root) {    
+   let result = [];
+   if(!root){
+       return [];
+   }
+
+   const buildTree = (root) => {
+       if(!root){
+           return result;
+       }
+
+       root.left && buildTree(root.left);
+       root.right && buildTree(root.right);
+       result.push(root.val);
+   };
+
+   buildTree(root);
+   return result;
+};
+
 
 
 // Iteration 
