@@ -3,28 +3,29 @@
 */
 
 // Recursion
-let result = [];
+
 /**
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function(root) {    
+ var preorderTraversal = function(root) {    
+    let result = [];
     if(!root){
         return [];
     }
-    
+  
+    const buildTree = (root) => {
+        if(!root){
+            return result;
+        }
+
+        result.push(root.val);
+        buildTree(root.left);
+        buildTree(root.right);
+    };
+     
     buildTree(root);
     return result;
-};
-
-const buildTree = (root) => {
-    if(!root){
-        return result;
-    }
-    
-    result.push(root.val);
-    root.left && buildTree(root.left);
-    root.right && buildTree(root.right);
 };
 
 
