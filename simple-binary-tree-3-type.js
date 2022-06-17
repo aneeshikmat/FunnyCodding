@@ -20,8 +20,8 @@
         }
 
         result.push(root.val);
-        buildTree(root.left);
-        buildTree(root.right);
+        root.left && buildTree(root.left);
+        root.right && buildTree(root.right);
     };
      
     buildTree(root);
